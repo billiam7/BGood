@@ -14,6 +14,9 @@ end
 class DashboardController < ApplicationController
   include Secured
 
+  def index
+  end
+
   def show
   end
 end

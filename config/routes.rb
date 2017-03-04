@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-
+  root 'users#index'
 
   resource :users
   resources :controllers
+  resources :dashboard
 
-  root 'users#index'
+
 
   get 'searches/index'
 
