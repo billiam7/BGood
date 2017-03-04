@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'dashboard#index'
 
   resource :users
   resources :controllers
   resources :dashboard
-
+  post 'searches/index', as: 'searches'
 
 
   get 'searches/index'

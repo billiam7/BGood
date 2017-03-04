@@ -1,15 +1,1 @@
 <h1>BGood</h1>
-
-<script src="https://cdn.auth0.com/js/lock-passwordless-2.2.min.js"></script>
-<script>
-  var lock = new Auth0LockPasswordless(ENV['auth0_bgood_key'], ENV['auth0_domain']);
-  function open() {
-    lock.sms({
-      callbackURL: 'http://localhost:3000/auth/oauth2/callback',
-      authParams: {
-        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
-      }
-    });
-  }
-</script>
-<button onclick="window.open();">SMS</button>

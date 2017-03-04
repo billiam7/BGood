@@ -19,4 +19,8 @@ class DashboardController < ApplicationController
 
   def show
   end
+
+  def loggedin
+  end
+
 end

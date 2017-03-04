@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
   def index
-   # client = Volunteermatch::Client.new('BGood', '083591354ab35892642e4a6b6a02caed')
-   client = Volunteermatch::Client.new(ENV["VMACCOUNTNAME"], ENV["VMAPIKEY"])
+
+   client = Volunteermatch::Client.new(ENV.fetch("VMACCOUNTNAME"), ENV.fetch("VMAPIKEY"))
    if params[:term]
      @results = client.search_opportunities(location: "Miami, FL",
                                            fieldsToDisplay: ["name", "title", "plaintextDescription", "numberOfResults", "location"],
