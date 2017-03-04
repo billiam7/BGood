@@ -1,15 +1,1 @@
 <h1>BGood</h1>
-
-<script src="https://cdn.auth0.com/js/lock-passwordless-2.2.min.js"></script>
-<script>
-  var lock = new Auth0LockPasswordless('kZb2T8rUqTB82PgRyv20Tj960RNiJQPT', 'bgood.auth0.com');
-  function open() {
-    lock.sms({
-      callbackURL: 'https://bgoodmiami.herokuapp.com/auth/oauth2/callback',
-      authParams: {
-        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
-      }
-    });
-  }
-</script>
-<button onclick="window.open();">SMS</button>
