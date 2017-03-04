@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resource :users
+  resources :controllers
+  
   root 'users#index'
 
   get "/auth/oauth2/callback" => "auth0#callback"
@@ -7,6 +10,4 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-  resource :users
-  resources :controllers
 end

@@ -3,7 +3,7 @@
   var lock = new Auth0LockPasswordless(ENV['auth0_bgood_key'], ENV['auth0_domain']);
   function open() {
     lock.sms({
-      callbackURL: 'https://YOUR_APP/callback',
+      callbackURL: 'http://localhost:3000/auth/oauth2/callback',
       authParams: {
         scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
       }
