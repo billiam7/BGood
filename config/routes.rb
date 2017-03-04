@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+
+
   resource :users
   resources :controllers
-  
+
   root 'users#index'
+
+  get 'searches/index'
 
   get "/auth/oauth2/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
