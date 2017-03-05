@@ -1,4 +1,4 @@
-Rails.application.config.middleware.use OmniAuth::Builder do
+ Rails.application.config.middleware.use OmniAuth::Builder do
   provider(
     :auth0,
     ENV['auth0_bgood_key'],

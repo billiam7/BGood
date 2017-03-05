@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'public_pages/home'
+  root 'public_pages#home'
 
 
   resource :users
