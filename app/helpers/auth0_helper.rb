@@ -2,7 +2,7 @@ module Auth0Helper
   private
 
   # Is the user signed in?
-  # @return [Boolean]
+  # return [Boolean]
   def user_signed_in?
     session[:userinfo].present?
   end

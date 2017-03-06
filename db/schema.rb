@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305022122) do
+
+ActiveRecord::Schema.define(version: 20170306212113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "b_good_users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "phone_number"
+    t.index ["phone_number"], name: "index_b_good_users_on_phone_number", unique: true, using: :btree
+  end
 
   create_table "challenges", force: :cascade do |t|
     t.string   "details"
@@ -27,12 +37,5 @@ ActiveRecord::Schema.define(version: 20170305022122) do
     t.index ["challenger_user_id", "user_id"], name: "index_challenges_on_challenger_user_id_and_user_id", using: :btree
     t.index ["user_id", "challenger_user_id"], name: "index_challenges_on_user_id_and_challenger_user_id", using: :btree
   end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "challenges", "b_good_users", column: "user_id"
 end

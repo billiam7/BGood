@@ -15,7 +15,10 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def show
+    # auth0
     @user = current_user
+    # our user
+    @b_good_user = BGoodUser.new
   end
 
   include Secured
