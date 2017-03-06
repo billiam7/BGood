@@ -5,8 +5,8 @@
  <%= search_field_tag :term %>
  <%= submit_tag "Go!" %>
 <% end %>
-<% @data_selection.each do |opportunity| %>
-  <% @opportunities_keys.zip(@opportunity).each |key, opportunity| %>
+<% @data_selection.each do |opportunities| %>
+  <% @opportunities_keys.zip(opportunities).each do |key, opportunity| %>
     <ul>
       <li><%= "#{key}: #{opportunity}" %></li>
     </ul>

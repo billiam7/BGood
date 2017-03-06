@@ -162,9 +162,8 @@ class SearchesController < ApplicationController
         child_values.empty? ? [parent_value].flatten.join(', ') : child_values.flatten.join(', ')
       end
     end
-
-
   end
+
 end
 
 # title
