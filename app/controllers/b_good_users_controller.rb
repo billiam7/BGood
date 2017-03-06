@@ -1,8 +1,8 @@
-class UsersController < ApplicationController
+class BGoodUsersController < ApplicationController
 
 # Login/welcome page
   def show
-    @bgood_user = User.new user_params
+    @b_good_user = BGoodUser.new user_params
   end
 
 

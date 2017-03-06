@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'public_pages#home'
 
 
-  resource :users
+  resource :b_good_users
   resources :challenges
 
   get 'dashboard' => 'dashboard#show'
