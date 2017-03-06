@@ -1,9 +1,14 @@
 
 
 
-<h2><%= @count %> pages</h2>
 <%= form_tag searches_index_path do %>
  <%= search_field_tag :term %>
  <%= submit_tag "Go!" %>
 <% end %>
-<%= @results %>
+<% @data_selection.each do |opportunity| %>
+  <% @opportunities_keys.zip(@opportunity).each |key, opportunity| %>
+    <ul>
+      <li><%= "#{key}: #{opportunity}" %></li>
+    </ul>
+  <% end %>
+<% end %>
