@@ -1,8 +1,18 @@
 class UsersController < ApplicationController
 
 # Login/welcome page
-  def index
-    @user = User.new
+  def show
+    @bgood_user = User.new user_params
+  end
+
+
+
+  private
+  def user_params
+    params.
+      permit(:name,
+            :email,
+            :phone_number)
   end
 
 

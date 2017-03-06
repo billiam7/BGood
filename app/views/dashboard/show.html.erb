@@ -3,7 +3,7 @@
 </div> -->
 
 <section class="jumbotron  text-center">
-  <h2><img class="jumbo-thumbnail img-circle" src="<%= @user["info"]["image"] %>"/></h2>
+  <h2><img class="jumbo-thumbnail img-circle" src="<%= @user["info"] %>"/></h2>
   <h1>Welcome, <%= @user["info"]["name"] %></h1>
 </section>
 <section class="container">
@@ -20,3 +20,29 @@
     </div>
   </div> -->
 </section>
+
+<h4>Please complete the following information in your profile:</h4>
+
+
+<%form_for(@bgood_user) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %>
+    <%= f.hidden_field @user['info']['name'] %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

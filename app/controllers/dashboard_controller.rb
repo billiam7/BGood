@@ -16,6 +16,7 @@ class DashboardController < ApplicationController
 
   def show
     @user = current_user
+    @bgood_user = User.new
   end
 
   include Secured
