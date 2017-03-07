@@ -5,10 +5,26 @@
  <%= search_field_tag :term %>
  <%= submit_tag "Go!" %>
 <% end %>
+
 <% @data_selection.each do |opportunities| %>
   <% @opportunities_keys.zip(opportunities).each do |key, opportunity| %>
-    <ul>
-      <li><%= "#{key}: #{opportunity}" %></li>
-    </ul>
+
+  <!-- repeat list code for each new opportunity -->
+  <ul class="collection">
+
+    <li class="collection-item avatar">
+      <!-- pic here -->
+      <img src="images/yuna.jpg" alt="" class="circle">
+
+      <span class="title">Title</span>
+      <p><%= "#{key}: #{opportunity}" %> <br>
+         <!-- another thing here -->
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+
+  </ul>
+
+  <!-- end of opportunity -->
   <% end %>
 <% end %>
