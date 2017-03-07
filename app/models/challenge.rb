@@ -1,3 +1,3 @@
 class Challenge < ApplicationRecord
-  belongs_to :bgood_user
+  belongs_to :b_good_user
 end

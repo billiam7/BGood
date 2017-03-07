@@ -26,8 +26,9 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'omniauth', '~> 1.3.1'
+# gem 'omniauth', '~> 1.3.1'
 gem 'omniauth-auth0', '~> 1.4.2'
+gem 'auth0'
 
 
 # Use jquery as the JavaScript library
