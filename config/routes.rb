@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboard#show'
 
   post 'searches/index', as: 'searches'
-
-
   get 'searches/index'
 
   get '/auth/oauth2/callback' => 'auth0#callback'
