@@ -4,7 +4,7 @@
 
 <script src="https://cdn.auth0.com/js/lock-passwordless-2.2.min.js"></script>
 <script>
-  var lock = new Auth0LockPasswordless('kvIwUnB3uIBQb6KGBpHo1orxfjhrK99J', 'bgood.auth0.com');
+  var lock = new Auth0LockPasswordless('<%= ENV['auth0_bgood_key'] %>', '<%= ENV['auth0_domain'] %>']);
   function open() {
     lock.emailcode({
       callbackURL: 'http://localhost:3000/auth/oauth2/callback',

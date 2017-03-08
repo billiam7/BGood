@@ -1,1 +1,19 @@
 <h1><%= current_user.name %>'s Profile</h1>
+
+
+<!--
+
+challenge a friend/invite/link
+
+edit info
+
+link to facebook/profile picture
+
+
+ -->
+
+<h3>Name: <%= current_user.name %></h3>
+
+<h3>Email: <%= current_user.email %></h3>
+
+<h3>Challenges: <%= Challenge.where(current_user.id) %></h3>
