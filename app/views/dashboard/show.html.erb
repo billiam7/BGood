@@ -16,4 +16,11 @@ link to facebook/profile picture
 
 <h3>Email: <%= current_user.email %></h3>
 
-<h3>Challenges: <%= Challenge.where(current_user.id) %></h3>
+<h3>Challenges: </h3>
+<% current_user.challenges.each do |challenge| %>
+  <p> <%= challenge.details %> </p>
+  <p> <%= challenge.date %></p>
+  <p> <%= challenge.challenge_type %></p>
+
+
+<% end %>

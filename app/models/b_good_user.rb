@@ -1,5 +1,5 @@
 class BGoodUser < ApplicationRecord
-  has_many :challenges, foreign_key: :user_id
+  has_many :challenges
 
   # has_and_belongs_to_many :b_good_users,
   #             class_name: "BGoodUser",
