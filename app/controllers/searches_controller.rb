@@ -2,23 +2,27 @@ require_relative './ruby_volunteer_match_client'
 require_relative './miami_volunteer_match'
 
 class SearchesController < ApplicationController
-  def index
-    miami = MiamiVolunteerMatch.new
+  @@miami ||= MiamiVolunteerMatch.new
 
-    # perform first search so page count is calculated
+  def get_initial_data
+    session[:page_number] ||= 0
     opportunities = []
-    opportunities.push(miami.opportunities)
-    count = miami.page_count
+    opportunities.push(@@miami.opportunities)
+    opportunities.flatten
+  end
 
-    1.times do
-      miami.next_page
-      opportunities.push(miami.opportunities)
+  def index
+    # perform first search so page count is calculated
+    # initialize @@miami if first time
+    _opportunities = get_initial_data unless session[:page_number]
+    session[:page_number] += 1
+
+    if session[:page_number] > 1
+      @@miami.get_page(session[:page_number])
+      opportunities = []
+      opportunities.push(@@miami.opportunities)
+      _opportunities = opportunities.flatten
     end
-
-
-    _opportunities = opportunities.flatten
-    opportunities_keys = _opportunities.first.keys
-    data = {opportunities: _opportunities, keys: opportunities_keys}
 
     get_org_info = lambda do |opportunity|
       org_id = opportunity.fetch('parentOrg').fetch('id')
@@ -45,7 +49,8 @@ class SearchesController < ApplicationController
       url = VolunteerURL.new('searchOrganizations', search_criteria)
       response = APIResponse.new(url)
       key = 'organization_info'
-      opportunity[key] = response.data['organizations']  # array
+      response_data = response.data['organizations']
+      opportunity[key] = response_data
       key
     end
 
@@ -66,6 +71,19 @@ class SearchesController < ApplicationController
     convert_availability = lambda do |opportunity|
       key = 'availability'
       availability = opportunity.fetch(key)
+      format_keys = [
+        'start date',
+        'end date',
+        'start time',
+        'end time',
+        'Is ongoing?',
+        'is single day opportunity?'
+      ]
+      lookup = {
+        nil => 'none',
+        true => 'yes',
+        false => 'no',
+      }
       availability = [
         "startDate",
         "endDate",
@@ -73,17 +91,13 @@ class SearchesController < ApplicationController
         "endTime",
         "ongoing",
         "singleDayOpportunity"
-        ].map do |a_key|
+        ].zip(format_keys).map do |a_key, format_key|
           value = availability.fetch(a_key)
-          value = value.nil? ? "none" : value
-          "#{a_key}: #{value}"
+          value = lookup.fetch(value, value)
+          "#{format_key}: #{value}"
         end
       opportunity[key] = availability
       key
-    end
-
-    identity = lambda do |opportunity|  # for testing
-      'greatFor'
     end
 
     arguments = [
@@ -106,19 +120,23 @@ class SearchesController < ApplicationController
       ["imageUrl", [], [], ],
       # ["categoryIds", [], [], ],
     ]
-
     @opportunities_keys = [
-    'organization',
-    'location',
-    'great for',
-    'availability',
-    'minimum age',
-    'description',
-    'image url',
-]
+			'organization',
+			'url',
+			'location',
+			'great for',
+			'availability',
+			'minimum age',
+			'description',
+			'image url',
+		]
+    @hidden_keys = ['image url', ]
+
+    # start of munging
     @data_selection = _opportunities.map do |opportunity|
       arguments.map do |parent_key, child_keys, functions|
           parent_value = opportunity.fetch(parent_key)
+
           # execute funcs here that return a key
           modifier_keys = functions.map do |function|
             key = function.call(opportunity)  # this calls a lamda
@@ -136,11 +154,12 @@ class SearchesController < ApplicationController
 
             child_values = [
               'availability'
-              ].include?(key) ? [] : child_values  # empty child values if key in list
+            ].include?(key) ? [] : child_values  # empty child values if key in list
 
             # add data produced from array of functions
             opportunity[key].each do |data_item|
               begin
+                # p data_item
                 data_item.each do |_, value| # hash
                   child_values.push(value)
                 end
@@ -161,10 +180,34 @@ class SearchesController < ApplicationController
         end
         child_values.empty? ? [parent_value].flatten.join(', ') : child_values.flatten.join(', ')
       end
+    end.map do |opportunity|
+      # split and prepend the org info
+      # can't figure out how to do it above
+      first = opportunity.shift
+      org = first.split(', ')[1, first.size]
+      org.reverse.each do |o|
+        opportunity.unshift(o)
+      end
+      opportunity
+    end.map do |opportunity| # more munging
+      # modifies last item
+      imgurl = opportunity.pop
+      imgurl = imgurl.empty? ? imgurl : %[<img src="#{imgurl}" alt="org image">]
+      opportunity.push(imgurl)
+
+      index = @opportunities_keys.index('url')
+      if index
+        _string = opportunity.fetch(index)
+        _string = %[<a href="#{_string}">website</a>]
+        opportunity[index] = _string
+      end
+      opportunity
     end
+
   end
 
 end
+
 
 # title
 # availability

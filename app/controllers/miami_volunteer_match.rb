@@ -1,5 +1,62 @@
 require_relative 'ruby_volunteer_match_client'
 
+module ActionKeys
+  @@lookup = {
+    "getKeyStatus" => [
+      'methods',
+      'owner',
+      'apiKeyConstraints'
+    ],
+    "getServiceStatus" => [
+      "publicMembers",
+      "publicOpportunities",
+      "publicOrganizations",
+      "publicOrganizationsWithOpportunities",
+      "publicReferrals",
+      "timestamp",
+      "uptime"
+    ],
+    "getMetaData" => [
+      "categories",
+      "grantFields",
+      "greatFor",
+      "hoursTrackingEmployeeEnteredOppFields",
+      "hoursTrackingEmployeeEnteredOrgFields",
+      "hoursTrackingFields",
+      "memberFields",
+      "opportunityTypes",
+      "partners",
+      "passwordRules",
+      "radii",
+      "referralFields",
+      "requiresRegistrationAddress",
+      "standardRegistrationFields",
+      "usCorps",
+      "useHoursIncrements",
+      "version"
+    ],
+    "helloWorld" => [
+      "name",
+      "result",
+    ],
+    "searchOrganizations" => [
+      "currentPage",
+      "organizations",
+      "resultsSize"
+    ],
+    "searchOpportunities" => [
+      "currentPage",
+      "opportunities",
+      "resultsSize",
+      "sortCriteria"
+    ],
+  }
+
+  def self.action_keys
+    @@lookup
+  end
+end
+
 class MiamiVolunteerMatch
   include ActionKeys
 
@@ -39,17 +96,8 @@ class MiamiVolunteerMatch
     self.call
   end
 
+  def get_page(page)
+    @query_params = {location: @query_params.fetch(:location), pageNumber: page}
+    self.call
+  end
 end
-
-
-
-# begin
-#   file = File.open("opportunities.json", "w")
-#   file.write(data_selection.to_json)
-# rescue IOError => e
-#   puts e
-# ensure
-#   file.close unless file.nil?
-# end
-
-# p data_selection.sample

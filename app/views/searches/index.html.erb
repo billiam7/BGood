@@ -1,30 +1,22 @@
-
-
-
 <%= form_tag searches_index_path do %>
- <%= search_field_tag :term %>
- <%= submit_tag "Go!" %>
+  <%= search_field_tag :term %>
+  <%= submit_tag "Go!" %>
 <% end %>
 
-<% @data_selection.each do |opportunities| %>
-  <% @opportunities_keys.zip(opportunities).each do |key, opportunity| %>
-
-  <!-- repeat list code for each new opportunity -->
-  <ul class="collection">
-
+<ul class="collection">
+  <% @data_selection.each do |opportunities| %>
     <li class="collection-item avatar">
-      <!-- pic here -->
-      <img src="images/yuna.jpg" alt="" class="circle">
-
-      <span class="title">Title</span>
-      <p><%= "#{key}: #{opportunity}" %> <br>
-         <!-- another thing here -->
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      <span class="title">Opportunity</span>
+      <% @opportunities_keys.zip(opportunities).each do |key, opportunity| %>
+        <% unless opportunity.empty? %>
+          <% key = @hidden_keys.include?(key) ? '' : [key, ':'].join %>
+          <p><%= raw("#{key} #{opportunity}") %> <br></p>
+        <% end %>
+        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      <% end %>
     </li>
-
-  </ul>
-
-  <!-- end of opportunity -->
   <% end %>
+</ul>
+<% if session[:page_number] == 1 %>
+  <a href="http://localhost:3000/searches/index?page=2">next</a>
 <% end %>
