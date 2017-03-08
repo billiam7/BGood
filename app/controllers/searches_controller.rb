@@ -1,8 +1,8 @@
-require_relative './ruby_volunteer_match_client'
+require_relative './volunteer_match_client'
 require_relative './miami_volunteer_match'
 
 class SearchesController < ApplicationController
-  @@miami ||= MiamiVolunteerMatch.new
+  @@miami ||= MiamiVolunteerMatch.new 
 
   def get_initial_data
     session[:page_number] ||= 0
@@ -16,6 +16,9 @@ class SearchesController < ApplicationController
     # initialize @@miami if first time
     _opportunities = get_initial_data unless session[:page_number]
     session[:page_number] += 1
+    if session[:page_number].to_i > @@miami.page_count
+      session[:page_number] = 1
+    end
 
     if session[:page_number] > 1
       @@miami.get_page(session[:page_number])
@@ -28,17 +31,17 @@ class SearchesController < ApplicationController
       org_id = opportunity.fetch('parentOrg').fetch('id')
       fields = [
          # "id",
-         # "name",
-         "title",
+         # "name", 
+         "title", 
          # "plaintextDescription",
-         # "location",
-         # "availability",
-         # "parentOrg",
-         "beneficiary",
-         # "imageUrl",
-         "vmUrl",
-         "status",
-         "tags",
+         # "location", 
+         # "availability", 
+         # "parentOrg", 
+         "beneficiary", 
+         # "imageUrl", 
+         "vmUrl", 
+         "status", 
+         "tags", 
          "numberOfResults",
       ]
       search_criteria = {
@@ -85,11 +88,11 @@ class SearchesController < ApplicationController
         false => 'no',
       }
       availability = [
-        "startDate",
-        "endDate",
-        "startTime",
-        "endTime",
-        "ongoing",
+        "startDate", 
+        "endDate", 
+        "startTime", 
+        "endTime", 
+        "ongoing", 
         "singleDayOpportunity"
         ].zip(format_keys).map do |a_key, format_key|
           value = availability.fetch(a_key)
@@ -108,11 +111,11 @@ class SearchesController < ApplicationController
       ["location", ["city", "region", "postalCode"], [], ],
       ["greatFor", [], [convert_great_for], ],
       ["availability", [
-        "startDate",
-        "endDate",
-        "startTime",
-        "endTime",
-        "ongoing",
+        "startDate", 
+        "endDate", 
+        "startTime", 
+        "endTime", 
+        "ongoing", 
         "singleDayOpportunity"
         ], [convert_availability, ], ],
       ["minimumAge", [], [], ],
@@ -136,26 +139,26 @@ class SearchesController < ApplicationController
     @data_selection = _opportunities.map do |opportunity|
       arguments.map do |parent_key, child_keys, functions|
           parent_value = opportunity.fetch(parent_key)
-
+          
           # execute funcs here that return a key
           modifier_keys = functions.map do |function|
             key = function.call(opportunity)  # this calls a lamda
             key
           end
-
+          
           child_values = child_keys.map do |child_key|
             parent_value.fetch(child_key)
           end.map do |value|
             value.nil? ? "none" : value
           end  # replace nil values with "none" text
-
+          
           # puts modifier_keys data onto child_values
           modifier_keys.each do |key|
-
+            
             child_values = [
               'availability'
             ].include?(key) ? [] : child_values  # empty child values if key in list
-
+            
             # add data produced from array of functions
             opportunity[key].each do |data_item|
               begin
@@ -207,14 +210,3 @@ class SearchesController < ApplicationController
   end
 
 end
-
-
-# title
-# availability
-# parentOrg
-# beneficiary
-# plaintextDescription
-# imageUrl
-# vmUrl
-# status
-# tags
