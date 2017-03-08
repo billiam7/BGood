@@ -5,7 +5,7 @@ class Auth0Controller < ApplicationController
    session[:userinfo] = request.env['omniauth.auth']
 
    # Redirect to the URL you want after successful auth
-   if current_user.name
+   if BGoodUser.exists?(auth0_id: (session[:userinfo]['uid']))
      redirect_to dashboard_path
    else
      redirect_to new_b_good_user_path
