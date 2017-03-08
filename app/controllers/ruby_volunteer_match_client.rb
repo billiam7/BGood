@@ -5,70 +5,13 @@ require 'uri'
 require 'json'
 require 'httparty'
 
-module ActionKeys
-  @@lookup = {
-    "getKeyStatus" => [
-      'methods', 
-      'owner', 
-      'apiKeyConstraints'
-    ],
-    "getServiceStatus" => [
-      "publicMembers", 
-      "publicOpportunities", 
-      "publicOrganizations", 
-      "publicOrganizationsWithOpportunities", 
-      "publicReferrals", 
-      "timestamp", 
-      "uptime"
-    ],
-    "getMetaData" => [
-      "categories", 
-      "grantFields", 
-      "greatFor", 
-      "hoursTrackingEmployeeEnteredOppFields", 
-      "hoursTrackingEmployeeEnteredOrgFields", 
-      "hoursTrackingFields", 
-      "memberFields", 
-      "opportunityTypes", 
-      "partners", 
-      "passwordRules", 
-      "radii", 
-      "referralFields", 
-      "requiresRegistrationAddress",
-      "standardRegistrationFields", 
-      "usCorps", 
-      "useHoursIncrements", 
-      "version"
-    ],
-    "helloWorld" => [
-      "name",
-      "result",
-    ],
-    "searchOrganizations" => [
-      "currentPage", 
-      "organizations", 
-      "resultsSize"
-    ],
-    "searchOpportunities" => [
-      "currentPage", 
-      "opportunities", 
-      "resultsSize", 
-      "sortCriteria"
-    ],
-  }
-  
-  def self.action_keys
-    @@lookup
-  end
-end
-
 class Credentials
   attr_reader = :account_name, :api_key
-  
+
   def initialize
     env_keys = ['ACCOUNTNAME', 'APIKEY']
     begin
-      @account_name, 
+      @account_name,
       @api_key = env_keys.map {|attr| ENV.fetch(attr)}
     rescue KeyError
       account_name, api_key = env_keys
@@ -81,7 +24,7 @@ class Credentials
       raise NameError.new message
     end
   end
-  
+
   def credentials
     [@account_name, @api_key]
   end
@@ -93,20 +36,20 @@ module Authentication
   @@password_digest = 3.times.map {nil}
   @@credentials = Credentials.new
   @@account_name, @@api_key = @@credentials.credentials
-  
-  
+
+
   def self.set_nonce
     @@nonce = Digest::SHA2.hexdigest(rand.to_s)
   end
-  
+
   def self.set_creation_time
     @@creation_time = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%S%z")
   end
-  
+
   def self.set_password_digest
     self.set_nonce
     self.set_creation_time
-    
+
     @@password_digest = Base64.encode64(
       Digest::SHA2.digest(
         [
@@ -117,7 +60,7 @@ module Authentication
       )
     ).chomp
   end
-  
+
   def self.wsse
     self.set_password_digest
     [
@@ -133,17 +76,17 @@ class VolunteerURL
   attr_reader :url, :actions
   @@actions = [
     "helloWorld",
-    "getKeyStatus", 
+    "getKeyStatus",
     "getServiceStatus",
     "getMetaData",
     "searchOrganizations",
     "searchOpportunities",
   ]
-  
+
   def self.actions
     @@actions
   end
-  
+
   def initialize(action, action_params)
     action_params_json = action_params.to_json
     @url = URI.parse([
@@ -159,9 +102,9 @@ end
 class APIResponse
   attr_reader :response
   include Authentication
-  
+
   def initialize(volunteer_url)
-    @response = HTTParty.get(volunteer_url.url, 
+    @response = HTTParty.get(volunteer_url.url,
       headers: {
                 'Content-Type' => 'application/json',
                 'Authorization' => 'WSSE profile="UsernameToken"',
@@ -169,7 +112,7 @@ class APIResponse
                }
     )
   end
-  
+
   def data
     @response.parsed_response
   end
