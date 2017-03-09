@@ -6,13 +6,15 @@
 <ul class="collection">
   <% @data_selection.each do |opportunities| %>
     <li class="collection-item avatar">
-      <span class="title">Opportunity</span>
+      <span class="title"></span>
+      
       <% @opportunities_keys.zip(opportunities).each do |key, opportunity| %>
         <% unless opportunity.empty? %>
           <% key = @hidden_keys.include?(key) ? '' : [key, ':'].join %>
           <p><%= raw("#{key} #{opportunity}") %> <br></p>
         <% end %>
-        <a class="waves-effect waves-light btn secondary-content" href="#modal1"><i class="material-icons">grade</i></a>
+        <a class="waves-effect waves-light btn secondary-content" href="#modal1"><i class="fa fa-calendar-plus-o fa-4x"></i></a>
+
 
       <% end %>
     </li>
@@ -27,10 +29,11 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+    <h4>I'm Ready to Volunteer!</h4>
+    <p>Heads up, this organization will expecting you to be there.  Please confirm any details using the link provided.  Thank you!</p>
   </div>
   <div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sign Me Up!</a>
   </div>
 </div>
