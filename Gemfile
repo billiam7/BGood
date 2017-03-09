@@ -7,6 +7,7 @@ end
 
 
 gem 'pg'
+gem 'rails_12factor', group: :production
 gem 'hirb'
 gem 'env'
 gem 'httparty'
