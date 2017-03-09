@@ -1,5 +1,3 @@
-require_relative 'volunteer_match_client'
-
 module ActionKeys
   @@lookup = {
     "getKeyStatus" => [
@@ -78,8 +76,8 @@ class MiamiVolunteerMatch
   end
 
   def call
-    url = VolunteerURL.new(@action, @query_params)
-    response = APIResponse.new(url)
+    url = VolunteerMatchClient::VolunteerURL.new(@action, @query_params)
+    response = VolunteerMatchClient::APIResponse.new(url)
     @data = response.data
     @current_page,
     @opportunities,

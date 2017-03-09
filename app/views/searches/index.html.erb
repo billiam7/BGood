@@ -4,24 +4,22 @@
 <% end %>
 
 <ul class="collection">
-  <% @data_selection.each do |opportunities| %>
-    <li class="collection-item avatar">
-      <span class="title"></span>
-      
-      <% @opportunities_keys.zip(opportunities).each do |key, opportunity| %>
-        <% unless opportunity.empty? %>
-          <% key = @hidden_keys.include?(key) ? '' : [key, ':'].join %>
-          <p><%= raw("#{key} #{opportunity}") %> <br></p>
+  <% @organizations.each do |org_name, attribs| %>
+    <li>
+      <span class="title"><%= org_name %></span>
+      <ul>
+        <% attribs.each do |key, value| %>
+          <li><b><%= "#{key}:" unless @hidden_keys.include?(key) %></b><%= simple_format(value) %></li>
         <% end %>
-        <a class="waves-effect waves-light btn secondary-content" href="#modal1"><i class="fa fa-calendar-plus-o fa-4x"></i></a>
-
-
-      <% end %>
+      </ul>
+      <a class="secondary-content" href="#modal1"><i class="fa fa-calendar-plus-o fa-4x"></i></a>
+      <hr>
     </li>
   <% end %>
 </ul>
-<% if session[:page_number] == 1 %>
-  <a href="http://localhost:3000/searches/index?page=2">next</a>
+<%= debug session.to_json %>
+<% unless session[:page_number].nil?%>
+  <a href="http://localhost:3000/searches/index?page=<%= session[:page_number] + 1 %>">next</a>
 <% end %>
 
 
@@ -33,7 +31,7 @@
     <p>Heads up, this organization will expecting you to be there.  Please confirm any details using the link provided.  Thank you!</p>
   </div>
   <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sign Me Up!</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Sign Me Up!</a>
   </div>
 </div>
