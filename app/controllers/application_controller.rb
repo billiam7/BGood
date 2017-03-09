@@ -3,4 +3,10 @@ class ApplicationController < ActionController::Base
 
   include Auth0Helper
 
+  before_action :set_referer
+
+  private
+  def set_referer
+    session[:referer] = params[:referer] if params[:referer]
+  end
 end
