@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308204727) do
+ActiveRecord::Schema.define(version: 20170309224920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170308204727) do
     t.datetime "updated_at",   null: false
     t.string   "phone_number"
     t.string   "auth0_id"
+    t.integer  "referer"
     t.index ["phone_number"], name: "index_b_good_users_on_phone_number", unique: true, using: :btree
   end
 
@@ -30,10 +31,9 @@ ActiveRecord::Schema.define(version: 20170308204727) do
     t.date     "date"
     t.string   "challenge_type"
     t.boolean  "completed"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "b_good_user_id"
-    t.integer  "challenger_user_id"
     t.index ["b_good_user_id"], name: "index_challenges_on_b_good_user_id", using: :btree
   end
 
