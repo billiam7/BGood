@@ -18,7 +18,7 @@
           <script>
             var lock = new Auth0LockPasswordless('<%= ENV['auth0_bgood_key'] %>', '<%= ENV['auth0_domain'] %>');
             function open() {
-              lock.emailcode({
+              lock.sms({
                 icon:"https://bgoodmiami.herokuapp.com/assets/bgood_logo-62bdcd1880a570f839862b5037083dc62f0c071898af8022c228481caf6bec0d.png",
                 primaryColor:"#4dd0e1",
                 callbackURL: 'http://localhost:3000/auth/oauth2/callback',

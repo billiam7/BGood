@@ -24,6 +24,6 @@ class BGoodUsersController < ApplicationController
 
   private
   def user_params
-    params.require(:b_good_user).permit(:name)
+    params.require(:b_good_user).permit(:name, :email)
   end
 end
