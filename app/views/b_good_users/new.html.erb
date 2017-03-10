@@ -1,10 +1,6 @@
 <h4>Please complete the following information in your profile:</h4>
 
-<p><%= BGoodUser.find_by(auth0_id: (session[:userinfo]['uid'])) %></p>
 
-<p><%= current_user.auth0_id %> </p>
-
-<p><%= session[:userinfo]['uid'] %></p>
 
 <%= form_for(@b_good_user) do |f| %>
 
