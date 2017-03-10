@@ -26,7 +26,7 @@ module Auth0Helper
   def current_user
     # this should be:
       # BGoodUser.find_by auth0_id: session[:userinfo][:uid]
-    @current_user = BGoodUser.find_by email: current_auth0_user["info"]["name"] if user_signed_in?
+    @current_user = BGoodUser.find_by auth0_id: current_auth0_user["uid"] if user_signed_in?
   end
 
 # return user to the login page

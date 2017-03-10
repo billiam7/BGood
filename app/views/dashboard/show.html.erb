@@ -4,20 +4,15 @@
 
 
 <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="I just completed a volunteer challenge at B Good, and now I challenge you to do the same!" data-url="https://bgoodmiami.herokuapp.com" data-lang="en" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<!--
-
-challenge a friend/invite/link
-
-edit info
-
-link to facebook/profile picture
 
 
- -->
+
 
 <h3>Name: <%= current_user.name %></h3>
 
 <h3>Email: <%= current_user.email %></h3>
+
+
 
 <h3>Challenges: </h3>
 <% current_user.challenges.each do |challenge| %>
@@ -25,6 +20,36 @@ link to facebook/profile picture
   <p> <%= challenge.date %></p>
   <p> <%= challenge.challenge_type %></p>
 
-
-
 <% end %>
+
+<a class="waves-effect waves-light btn" href="#modal1">Edit Profile</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4><%= current_user.name %>'s Profile</h4>
+
+      <%= form_for(current_user) do |f| %>
+
+
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "Update Profile", class: "modal-action modal-close waves-green btn-flat" %>
+      </div>
+      <% end %>
+  </div>
+
+
+
+
+    <%# f.submit("Update Profile", class: "modal-action modal-close waves-effect waves-green btn-flat")%>
