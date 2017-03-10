@@ -1,6 +1,7 @@
 class SearchesController < ApplicationController
   @@miami ||= MiamiVolunteerMatch.new
 
+
   def get_initial_data
     session[:page_number] ||= 0
     opportunities = []
@@ -140,6 +141,7 @@ class SearchesController < ApplicationController
           'minimum age',
           'description',
           'image url',
+
         ]
         @hidden_keys = ['image url', ]
 

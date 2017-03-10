@@ -32,6 +32,16 @@
   </div>
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Sign Me Up!</a>
+    <a href="#!" id="signUpModalBtn" class="modal-action modal-close waves-effect waves-green btn-flat">Sign Me Up!</a>
   </div>
 </div>
+
+
+<script>
+  $('#signUpModalBtn').click(function(e){
+    e.preventDefault();
+    console.log('worked');
+  });
+
+
+</script>

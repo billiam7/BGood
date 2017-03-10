@@ -21,6 +21,7 @@ class BGoodUsersController < ApplicationController
     redirect_to dashboard_path, notice: "Thank you for completing your profile."
   end
 
+
   def update
       @b_good_user= current_user
     if @b_good_user.update(user_params)
@@ -28,6 +29,9 @@ class BGoodUsersController < ApplicationController
     else
       render :edit
     end
+
+  def join_organization
+
   end
 
   private
