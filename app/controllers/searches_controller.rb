@@ -102,7 +102,7 @@ class SearchesController < ApplicationController
         "endTime",
         "ongoing",
         "singleDayOpportunity"
-      ].zip(format_keys).map do |a_key, format_key|
+      ].zip(format_keys).to_h.map do |a_key, format_key|
         value = availability.fetch(a_key) rescue availability.fetch(format_key)
         value = lookup.fetch(value, value)
         "#{format_key}: #{value}"

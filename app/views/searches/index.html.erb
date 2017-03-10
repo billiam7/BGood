@@ -6,7 +6,7 @@
 <ul class="collection">
   <% @organizations.each do |org_name, attribs| %>
     <li>
-      <span class="title"><%= org_name %></span>
+      <span class="title"></span>
       <ul>
         <% attribs.each do |key, value| %>
           <li><b><%= "#{key}:" unless @hidden_keys.include?(key) %></b><%= simple_format(value) %></li>
@@ -17,7 +17,7 @@
     </li>
   <% end %>
 </ul>
-<%= debug session.to_json %>
+
 <% unless session[:page_number].nil?%>
   <a href="http://localhost:3000/searches/index?page=<%= session[:page_number] + 1 %>">next</a>
 <% end %>
