@@ -7,12 +7,13 @@
   <% @organizations.each do |org_name, attribs| %>
     <li>
       <span class="title"></span>
+        <a class="secondary-content" href="#modal1"><i class="fa fa-calendar-plus-o fa-4x"></i></a>
       <ul>
         <% attribs.each do |key, value| %>
           <li><b><%= "#{key}:" unless @hidden_keys.include?(key) %></b><%= simple_format(value) %></li>
         <% end %>
       </ul>
-      <a class="secondary-content" href="#modal1"><i class="fa fa-calendar-plus-o fa-4x"></i></a>
+
       <hr>
     </li>
   <% end %>
