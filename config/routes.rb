@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   get '/logout' => 'logouts#logout'
 
+  post '/b_good_user/join_organization' => 'b_good_usersr#join_organization', as: 'join_organization'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 

@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170309220424) do
-
+ActiveRecord::Schema.define(version: 20170310013335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +24,11 @@ ActiveRecord::Schema.define(version: 20170309220424) do
     t.string   "auth0_id"
     t.integer  "referer"
     t.index ["phone_number"], name: "index_b_good_users_on_phone_number", unique: true, using: :btree
+  end
+
+  create_table "b_good_users_organizations", force: :cascade do |t|
+    t.integer "b_good_user_id"
+    t.integer "organization_id"
   end
 
   create_table "challenges", force: :cascade do |t|
