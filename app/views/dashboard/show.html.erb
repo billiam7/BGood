@@ -4,16 +4,8 @@
 
 
 <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="I just completed a volunteer challenge at B Good, and now I challenge you to do the same!" data-url="https://bgoodmiami.herokuapp.com" data-lang="en" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<!--
 
-challenge a friend/invite/link
-
-edit info
-
-link to facebook/profile picture
-
-
- -->
+<%= link_to "Edit", edit_b_good_user_path(current_user) %>
 
 <h3>Name: <%= current_user.name %></h3>
 
@@ -24,7 +16,5 @@ link to facebook/profile picture
   <p> <%= challenge.details %> </p>
   <p> <%= challenge.date %></p>
   <p> <%= challenge.challenge_type %></p>
-
-
 
 <% end %>
