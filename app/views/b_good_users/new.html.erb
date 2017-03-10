@@ -10,13 +10,10 @@
     <%= f.text_field :name %>
   </div>
 
-  <!-- <div class="field">
-    <%# f.hidden_field :email, :value => session[:userinfo]['info']['email'] %>
-  </div>
-
   <div class="field">
-    <%# f.hidden_field :auth0_id, :value => session[:userinfo]['uid'] %>
-  </div> -->
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
