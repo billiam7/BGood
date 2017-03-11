@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  b_good_user: one
+  opportunity: one
+
+two:
+  b_good_user: two
+  opportunity: two
