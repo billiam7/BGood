@@ -29,9 +29,9 @@ class BGoodUsersController < ApplicationController
     else
       render :edit
     end
+  end
 
   def join_organization
-
   end
 
   private
