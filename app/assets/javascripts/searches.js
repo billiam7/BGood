@@ -11,8 +11,14 @@
           // console.log($trigger.data());
           var oppid = $trigger.data('oppid');
           var oppName = $trigger.data('name');
+          var oppOrg = $trigger.data('organization');
+          var oppDate = $trigger.data('date');
+          var oppTime = $trigger.data('time');
+          var oppLink = $trigger.data('link');
+            console.log("oppOrg: ", oppOrg, "oppDate:", oppDate, "oppTime:", oppTime, "oppLink:", oppLink);
+            console.log($trigger.data);
           $('.signup-button').attr('href', $('.signup-button').attr('href') +
-            "?oppid=" + oppid + "&name=" + oppName);
+            "?oppid=" + oppid + "&name=" + oppName + "&organization=" + oppOrg + "&date=" + oppDate + "&time=" + oppTime + "&link=" + oppLink);
         },
         // complete: function() { console.log('Closed'); } // Callback for Modal close
       }
