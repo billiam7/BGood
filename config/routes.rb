@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   post '/b_good_user/join_organization' => 'b_good_usersr#join_organization', as: 'join_organization'
 
+  get 'signup' => 'opportunities#signup'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
