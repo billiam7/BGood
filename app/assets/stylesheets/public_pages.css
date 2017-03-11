@@ -1,7 +1,17 @@
-body {
-  background: linear-gradient(#e0f7fa, #00bcd4);
+.volunteer_video {
+  width: 100%;
+  height: auto;
 }
 
+#auth0_login {
+  margin-top: 300px;
+}
+
+a#login_button.waves-effect.waves-light.btn-large.cyan.lighten-2 {
+  padding: 90px 90px 130px 90px;
+  text-align: center;
+  font-size: 35px;
+}
 
 .landing-top {
   height: 100px;
@@ -32,7 +42,7 @@ p {
 }
 
 .parallax-container {
-  min-height: 500px;
+  min-height: 700px;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
@@ -66,4 +76,11 @@ p {
 
 footer.page-footer {
   margin: 0;
+}
+
+
+/*About us page*/
+#about_us_logo {
+  width: 300px;
+  height: auto;
 }

@@ -32,7 +32,6 @@ class BGoodUsersController < ApplicationController
   end
 
   def join_organization
-
   end
 
   private

@@ -1,4 +1,5 @@
-<body>
+<body style="background: linear-gradient(#e0f7fa, #00bcd4);">
+
 <div id="landing_page_body">
 
   <div class="container landing-top">
@@ -30,13 +31,13 @@
               });
             }
           </script>
-          <a><button class="waves-effect waves-light btn-large cyan lighten-2" onclick="window.open();">Login or Sign up!</button></a>
+          <a id='login_button' class="waves-effect waves-light btn-large cyan lighten-2" onclick="window.open();">Login or Sign up!</a>
         </div>
         <br><br>
 
       </div>
     </div>
-    <div class="parallax"><%= image_tag("volunteer.png", alt: "bookcase") %></div>
+    <div class="parallax"><%= video_tag("volunteer_montage.mov", controls: false, autoplay: true, loop: true, class: "volunteer_video") %></div>
   </div>
 
 
@@ -121,8 +122,8 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">About Us</h5>
-          <p class="grey-text text-lighten-4">.</p>
+          <h5 class="white-text"></h5>
+          <p class="grey-text text-lighten-4"></p>
 
 
         </div>
