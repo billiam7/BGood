@@ -1,3 +1,66 @@
+
+/*About us page*/
+#pictures_banner {
+  display: flex;
+  flex-direction: row;
+}
+.about_us_logo {
+  width: 20%;
+  height: 30vh;
+  margin: 0;
+  padding: none;
+}
+
+.row.top {
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+#about_us_outer_container h1 {
+  margin-top: 30px;
+}
+
+
+#about_us_outer_container {
+  background: linear-gradient(#e0f7fa, #00bcd4);
+  margin: none;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#about_us_container {
+  display: inline-flex;
+  padding: 10px 50px;
+  text-align: center;
+;
+}
+
+.git_hub_logo {
+  width: 25%;
+}
+
+.twitter_logo {
+  width: 10%;
+}
+
+li {
+  display: inline;
+}
+
+.bio_pictures {
+  width: 50%;
+  height: auto;
+}
+
+ul.right.hide-on-med-and-down {
+  height: 0;
+}
+
+/*
+
 .homepage-hero-module {
     border-right: none;
     border-left: none;

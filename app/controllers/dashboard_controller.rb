@@ -7,4 +7,6 @@ class DashboardController < ApplicationController
     @b_good_user = BGoodUser.new
   end
 
+  def about_us
+  end
 end

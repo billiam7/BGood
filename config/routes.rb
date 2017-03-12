@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'public_pages#home'
-  get 'about_us' => 'public_pages#about_us'
+  get 'about_us' => 'dashboard#about_us'
 
   resources :b_good_users
   resources :challenges
