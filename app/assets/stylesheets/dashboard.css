@@ -59,6 +59,10 @@ ul.right.hide-on-med-and-down {
   height: 0;
 }
 
+.hidden{
+  display:none
+}
+
 /*
 
 .homepage-hero-module {
@@ -101,8 +105,4 @@ ul.right.hide-on-med-and-down {
 }
 .video-container video.fillWidth {
     width: 100%;
-}
-
-.hidden{
-  display:none;
 }

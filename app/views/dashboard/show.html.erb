@@ -62,7 +62,7 @@
         <td> <%= challenge.opportunity.organization %></td>
         <td> <%= challenge.opportunity.date %></td>
         <td> <%= challenge.opportunity.time %></td>
-        <td> <%= link_to "View Opportunity", challenge.opportunity.link %></td>
+        <td> <%= link_to (content_tag :i, "open_in_browser", class: 'material-icons'), challenge.opportunity.link %></td>
         <!-- <i class="material-icons">open_in_browser</i> add icon -->
         <tr>
         </tbody>

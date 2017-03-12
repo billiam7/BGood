@@ -7,6 +7,7 @@
   <% @opportunities.each do |opportunity| %>
     <li>
       <span class="title"><%= opportunity["title"] %></span>
+
       <a class="secondary-content" href="#modal1"
         data-oppid="<%= opportunity['id'] %>"
         data-name="<%= opportunity['title'] %>"
@@ -14,9 +15,9 @@
         data-date="<%= opportunity['availability']['startDate'] %>"
         data-time="<%= opportunity['availability']['startTime'] %>"
         data-link="<%= opportunity['vmUrl'] %>"  >
-
         <i class="fa fa-calendar-plus-o fa-4x"></i>
       </a>
+
       <ul>
         <% opportunity.each do |field, value| %>
           <% next if (%w[title description categoryIds greatFor].include?(field) or value.blank?) %>
@@ -33,7 +34,8 @@
             <% elsif field == "vmUrl" %>
               <li><%= link_to "View Opportunity", value %></li>
             <% elsif field == 'imageUrl' %>
-              <li><%= image_tag value %></li>
+
+              <li class="collection-item avatar circle"><%= image_tag value %></li>
             <% else %>
               <%= field %>: <%= value %>
             <% end %>
