@@ -1,3 +1,4 @@
+
 /*About us page*/
 #pictures_banner {
   display: flex;
@@ -59,6 +60,7 @@ ul.right.hide-on-med-and-down {
 }
 
 /*
+
 .homepage-hero-module {
     border-right: none;
     border-left: none;
@@ -99,4 +101,8 @@ ul.right.hide-on-med-and-down {
 }
 .video-container video.fillWidth {
     width: 100%;
-}*/
+}
+
+.hidden{
+  display:none;
+}

@@ -1,7 +1,7 @@
-<%= form_tag searches_index_path do %>
+<!-- <%= form_tag searches_index_path do %>
 <%= search_field_tag :term %>
 <%= submit_tag "Go!" %>
-<% end %>
+<% end %> -->
 
 <ul class="collection">
   <% @opportunities.each do |opportunity| %>
@@ -10,7 +10,11 @@
       <a class="secondary-content" href="#modal1"
         data-oppid="<%= opportunity['id'] %>"
         data-name="<%= opportunity['title'] %>"
-      >
+        data-organization="<%= opportunity['parentOrg']['name'] %>"
+        data-date="<%= opportunity['availability']['startDate'] %>"
+        data-time="<%= opportunity['availability']['startTime'] %>"
+        data-link="<%= opportunity['vmUrl'] %>"  >
+
         <i class="fa fa-calendar-plus-o fa-4x"></i>
       </a>
       <ul>
