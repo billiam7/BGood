@@ -1,12 +1,11 @@
-<%= form_tag searches_index_path do %>
+<!-- <%= form_tag searches_index_path do %>
 <%= search_field_tag :term %>
 <%= submit_tag "Go!" %>
-<% end %>
+<% end %> -->
 
 <ul class="collection">
   <% @opportunities.each do |opportunity| %>
     <li>
-      <%= p opportunity['availability']['startDate']%>
       <span class="title"><%= opportunity["title"] %></span>
       <a class="secondary-content" href="#modal1"
         data-oppid="<%= opportunity['id'] %>"
