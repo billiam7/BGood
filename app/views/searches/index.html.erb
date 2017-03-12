@@ -1,7 +1,5 @@
-<!-- <%= form_tag searches_index_path do %>
-<%= search_field_tag :term %>
-<%= submit_tag "Go!" %>
-<% end %> -->
+<body>
+      <div class="container-search">
 
 <ul class="collection">
   <% @opportunities.each do |opportunity| %>
@@ -13,13 +11,13 @@
         data-date="<%= opportunity['availability']['startDate'] %>"
         data-time="<%= opportunity['availability']['startTime'] %>"
         data-link="<%= opportunity['vmUrl'] %>"  >
-        <i class="fa fa-calendar-plus-o fa-4x"></i>
+        <i class="fa fa-calendar-plus-o fa-2x" aria-hidden="true"></i>
       </a>
       <%= image_tag(opportunity['imageUrl'], :class => "circle responsive-img") if opportunity['imageUrl']%>
       <span class="title"><%= opportunity["title"] %></span>
       <p><%= opportunity['plaintextDescription'] if opportunity['plaintextDescription'] %></p>
         <% opportunity.each do |field, value| %>
-          <% next if (%w[imageUrl plaintextDescription title description categoryIds greatFor id].include?(field) or value.blank?) %>
+          <% next if (%w[minimumAge imageUrl plaintextDescription title description categoryIds greatFor id].include?(field) or value.blank?) %>
             <% if value.is_a? Hash %>
               <%= field %>
               <ul>
@@ -40,8 +38,8 @@
 </ul>
 
 <% unless session[:page_number].nil?%>
-<a href="http://localhost:3000/searches/index?page=<%= session[:page_number] + 1 %>">next</a>
-<!-- <i class="large material-icons">skip_next</i> add icon -->
+<a href="http://localhost:3000/searches/index?page=<%= session[:page_number] + 1 %>">next
+<i class="small material-icons">skip_next</i></a>
 <% end %>
 
 
@@ -57,3 +55,6 @@
     <%= link_to 'Sign Me Up!', signup_path, class: 'modal-action modal-close waves-effect waves-green btn-flat signup-button' %>
   </div>
 </div>
+
+      </div>
+</body>
