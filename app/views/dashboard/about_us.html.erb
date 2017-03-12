@@ -10,42 +10,69 @@
 <div id='about_us_outer_container'>
   <h1>About Us</h1>
   <div id='about_us_container'>
+      <div class='row'>
+        <div class='col s6'>
+          <h3>Bill Lapko</h3>
+            <%= image_tag('williamLapko.jpg', alt: "picture of William Lapko", class: "bio_pictures circle responsive-img") %>
+        </div>
+        <div class='col s6'>
+          <h3>Bethany Farrey</h3>
+            <%= image_tag('bethanyfarrey.jpg', alt: "picture of bethany farrey", class: 'bio_pictures circle responsive-img')%>
+          </div>
+      </div>
+
     <div class='row'>
       <div class='col s6'>
-        <h3>Bill Lapko</h3>
-          <%= image_tag('williamLapko.jpg', alt: "picture of William Lapko", class: "bio_pictures circle responsive-img") %>
-          <p>Bill started his career working in finance in New York City, shortly after graduating from Rutgers.  His experience working as an art dealer then brought him to Miami, Florida. He recently took advatage of the opportunity to learn code at Wyncode Academy.  He's now looking to join the Miami tech communinity as a web developer.</p>
-          <p><i class="material-icons">email</i>wlapko@gmail.com</p>
+        <p class="flow-text">Bill started his career working in finance in New York City, shortly
+          after graduating from Rutgers.  His experience working as an art
+          dealer then brought him to Miami, Florida. He recently took advatage
+           of the opportunity to learn code at Wyncode Academy.  He's now
+           looking to join the Miami tech communinity as a web developer.</p>
+      </div>
+      <div class='col s6'>
+        <p class="flow-text">Bethany is a web developer and former zookeeper living in South Florida.
+          As a graduate of Emory University, she worked at zoos and museums in Atlanta,
+          GA, Orlando, FL, and Chicago, IL. After returning to South Florida in 2015,
+          she decided to become a full-stack web developer and attended Wyncode Academy
+          in January 2017.</p>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col s6'>
+        <p><i class="material-icons">email</i>wlapko@gmail.com</p>
+      </div>
+      <div class='col s6'>
+        <p><i class="material-icons">email</i>  bethanyfarrey@gmail.com</p>
+      </div>
+    </div>
+
+    <div class='row logo_buttons'>
+      <div class='col s6'>
         <ul>
           <li><a href='https://www.linkedin.com/in/william-lapko-3bb31928/'><%= image_tag('linkedin.png', alt: 'linked in logo') %></a></li>
-          <li><a href='https://github.com/billiam7'><%= image_tag('github_logo.png', alt:'git hub logo', class: 'git_hub_logo')%></a></li>
-          <li><a href='https://twitter.com/SirBilliam7'><%= image_tag('twitter_logo.png', alt:'twitter logo', class: 'twitter_logo')%></a></li>
+          <li><a href='https://github.com/billiam7'><%= image_tag('github_logo.png', alt:'git hub logo')%></a></li>
+          <li><a href='https://twitter.com/SirBilliam7'><%= image_tag('twitter_logo.png', alt:'twitter logo')%></a></li>
         </ul>
       </div>
 
       <div class='col s6'>
-        <h3>Bethany Farrey</h3>
-          <%= image_tag('bethanyfarrey.jpg', alt: "picture of bethany farrey", class: 'bio_pictures circle responsive-img')%>
-          <p>Bethany is a web developer and former zookeeper living in South Florida.
-            As a graduate of Emory University, she worked at zoos and museums in Atlanta,
-            GA, Orlando, FL, and Chicago, IL. After returning to South Florida in 2015,
-            she decided to become a full-stack web developer and attended Wyncode Academy
-            in January 2017.</p>
-          <p><i class="material-icons">email</i>  bethanyfarrey@gmail.com</p>
         <ul>
           <li><a href='https://www.linkedin.com/in/bethany-farrey/'><%= image_tag('linkedin.png', alt: 'linked in logo') %></a></li>
-          <li><a href='https://github.com/BDFarrey'><%= image_tag('github_logo.png', alt:'git hub logo', class: 'git_hub_logo')%></a></li>
-          <li><a href='https://twitter.com/BethanyFarrey'><%= image_tag('twitter_logo.png', alt:'twitter logo', class: 'twitter_logo')%></a></li>
+          <li><a href='https://github.com/BDFarrey'><%= image_tag('github_logo.png', alt:'git hub logo')%></a></li>
+          <li><a href='https://twitter.com/BethanyFarrey'><%= image_tag('twitter_logo.png', alt:'twitter logo')%></a></li>
         </ul>
       </div>
     </div>
-    </div>
+
     <div id='wyncode_logo_and_info'>
       <a href='https://wyncode.co/'><img id='wyncode_logo' src='https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/2904/s300/wyncode-icon.jpg' alt='wyncode logo'/ class="circle responsive-img"></a>
-      <h3>Wyncode Academy</h3>
+      <a href='https://wyncode.co/'><h3>Wyncode Academy</h3></a>
     </div>
 
 
+
+  </div>
   <footer class="page-footer cyan darken-1">
       <div class="container">
         <div class="row" id='photocredits'>

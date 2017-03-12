@@ -31,35 +31,58 @@
 }
 
 #about_us_container {
-  display: inline-flex;
   padding: 10px 50px;
   text-align: center;
 }
 
-.git_hub_logo {
-  width: 25%;
+#about_us_container p {
+  font-size: 15px;
 }
 
-.twitter_logo {
-  width: 10%;
+.logo_buttons ul{
+  display: inline-flex;
+  justify-content: center;
+}
+
+.logo_buttons li {
+  width: 20%;
+
+}
+
+.logo_buttons img {
+  width: 100%;
 }
 
 ul#photocredits li {
   display: inline;
 }
 
+#photocredits a {
+  color: black;
+}
+
+
 .bio_pictures {
   width: 50%;
   height: auto;
 }
 
-ul.right.hide-on-med-and-down {
-  height: 0;
+.hidden{
+  display:none
 }
 
 
-.hidden{
-  display:none
+#wyncode_logo_and_info {
+  margin-top:100px;
+}
+
+#wyncode_logo_and_info a {
+  text-decoration: none;
+  color: black;
+}
+
+#wyncode_logo_and_info a:hover {
+  color: blue;
 }
 
 /*profile page*/
@@ -70,10 +93,16 @@ ul.right.hide-on-med-and-down {
 }
 #challenge_button {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-#link_to_challenge_button{
+.link_to_challenge_button{
   margin-top: 20%;
   font-size: 30px;
+}
+
+/*nav bar*/
+ul.right.hide-on-med-and-down {
+  height: 0;
 }
