@@ -23,7 +23,6 @@
   margin-top: 30px;
 }
 
-
 #about_us_outer_container {
   background: linear-gradient(#e0f7fa, #00bcd4);
   margin: none;
@@ -49,8 +48,6 @@ ul#photocredits li {
   display: inline;
 }
 
-
-
 .bio_pictures {
   width: 50%;
   height: auto;
@@ -65,54 +62,7 @@ ul.right.hide-on-med-and-down {
   display:none
 }
 
-/*
-
-.homepage-hero-module {
-    border-right: none;
-    border-left: none;
-    position: relative;
-}
-.no-video .video-container video,
-.touch .video-container video {
-    display: none;
-}
-.no-video .video-container .poster,
-.touch .video-container .poster {
-    display: block !important;
-=======
-#wyncode_logo_and_info {
-  display: flex;
-  justify-content: center;
-  color: white;
-  padding: 50px 0;
->>>>>>> 6fbf357ae08ce198d1bfeffa73d2cbf142e5d330
-}
-
-#wyncode_logo {
-  width: 40%;
-}
-
-#photo_credits a:link,
-#photo_credits a:link {
-  color: black;
-}
-
-
-.dashboard_video_container {
-/*  making the video fullscreen  */
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  opacity: 0.3;
-}
-
 /*profile page*/
-
 
 .profile_layout_and_challenge {
   display: flex;
@@ -122,8 +72,6 @@ ul.right.hide-on-med-and-down {
   display: flex;
   justify-content: center;
 }
-
-
 
 #link_to_challenge_button{
   margin-top: 20%;

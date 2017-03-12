@@ -1,14 +1,21 @@
-<div id='challenges'>
-  <h3>Challenges!</h3>
-  <p>Now that you are a member of B Good, challenge a friend to volunteer in the
-    community as well.  The best part?  They can search our database to find something
-    that interests them.  Do they like animals?  Helping with a beach clean up?
-    Our site lists all different types of volunteer groups so that anyone can
-    find something in which they are interested.  Challenge a friend today or invite
-    someone to join you on an opportuntiy you have found.</p>
-
-  <div class='social_buttons'>
-    <div class="fb-share-button" data-href="http://bgoodmiami.herokuapp.com?referer=<%= current_user.id %>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2F&amp;src=sdkpreparse">Share</a></div>
-    <div><a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="I just completed a volunteer challenge at B Good, and now I challenge you to do the same!" data-url="https://bgoodmiami.herokuapp.com" data-lang="en" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+<div id='challenges valign-wrapper'>
+  <div class="challenges_video_container video_container">
+    <%= video_tag("Draw-Something.mp4", controls: false, autoplay: true, loop: true, class: "drawing_video") %>
   </div>
+  <div class='top_of_challenges valign-wrapper'>
+    <div id='challenges_text' class='card-panel cyan darken-2'>
+      <h3 >Challenges!</h3>
+      <p class="flow-text">Now that you are a member of B Good, challenge a friend to volunteer in the
+        community as well.  The best part?  They can search our database to find something
+        that interests them.  Do they like animals?  Helping with a beach clean up?
+        Our site lists all different types of volunteer groups so that anyone can
+        find something in which they are interested.  Challenge a friend today or invite
+        someone to join you on an opportuntiy you have found.</p>
+    </div>
+    <div class='social_buttons'>
+      <div class="fb-share-button" data-href="http://bgoodmiami.herokuapp.com?referer=<%= current_user.id %>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2F&amp;src=sdkpreparse">Share</a></div>
+      <div><a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="I just completed a volunteer challenge at B Good, and now I challenge you to do the same!" data-url="https://bgoodmiami.herokuapp.com" data-lang="en" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+    </div>
+  </div>
+
 </div>

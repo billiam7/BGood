@@ -1,0 +1,63 @@
+div#challenges {
+
+}
+
+.challenges_video_container {
+/*  making the video fullscreen  */
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  opacity: 0.8;
+}
+
+#challenges_text p {
+  font-size: 20px;
+
+}
+
+.top_of_challenges {
+  display: flex;
+  justify-content: center;
+  margin-top: 350px;
+}
+
+#challenges_text {
+  flex-grow: 1;
+  width: 50%;
+  margin-left: 10%;
+  color: black;
+}
+
+#challenges_text h3 {
+  color: white;
+}
+
+.social_buttons {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+}
+
+.fb-share-button, .twitter-share-button {
+  transform: scale(2.5);
+  margin: 50px 70px;
+}
+
+.twitter-share-button {
+  margin-bottom: -5px;
+}
+
+.challenges_page_photo_credit {
+  text-align: center;
+  width: 100%;
+  color: grey;
+}
+
+.challenges_page_photo_credit a {
+  color: grey;
+}
