@@ -5,9 +5,7 @@
 
 <ul class="collection">
   <% @opportunities.each do |opportunity| %>
-    <li>
-      <span class="title"><%= opportunity["title"] %></span>
-
+    <li class="collection-item avatar">
       <a class="secondary-content" href="#modal1"
         data-oppid="<%= opportunity['id'] %>"
         data-name="<%= opportunity['title'] %>"
@@ -17,12 +15,11 @@
         data-link="<%= opportunity['vmUrl'] %>"  >
         <i class="fa fa-calendar-plus-o fa-4x"></i>
       </a>
-
-      <ul>
+      <%= image_tag(opportunity['imageUrl'], :class => "circle responsive-img") if opportunity['imageUrl']%>
+      <span class="title"><%= opportunity["title"] %></span>
+      <p><%= opportunity['plaintextDescription'] if opportunity['plaintextDescription'] %></p>
         <% opportunity.each do |field, value| %>
-          <% next if (%w[title description categoryIds greatFor].include?(field) or value.blank?) %>
-
-          <li>
+          <% next if (%w[imageUrl plaintextDescription title description categoryIds greatFor id].include?(field) or value.blank?) %>
             <% if value.is_a? Hash %>
               <%= field %>
               <ul>
@@ -32,16 +29,11 @@
                 <% end %>
               </ul>
             <% elsif field == "vmUrl" %>
-              <li><%= link_to "View Opportunity", value %></li>
-            <% elsif field == 'imageUrl' %>
-
-              <li class="collection-item avatar circle"><%= image_tag value %></li>
+              <li><%= link_to "View Opportunity Site", value %></li>
             <% else %>
               <%= field %>: <%= value %>
             <% end %>
-          </li>
         <% end %>
-      </ul>
     </li>
     <hr>
   <% end %>
