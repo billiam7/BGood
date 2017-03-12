@@ -1,29 +1,22 @@
-<div class="homepage-hero-module">
-    <div class="video-container">
-        <div class="filter"></div>
-        <video autoplay loop class="fillWidth">
-            <%= video_tag("Draw-Something.mp4", controls: false, autoplay: true, loop: true, class: "drawing_video") %>
-        </video>
-        <div class="poster hidden">
-            <img src="PATH_TO_JPEG" alt="">
-        </div>
-    </div>
+<div class="dashboard_video_container">
+  <%= video_tag("Draw-Something.mp4", controls: false, autoplay: true, loop: true, class: "drawing_video") %>
 </div>
-<div class="outercontainerbox">
 
-</div>
 <div id='dashboard_layout' class='container'>
 
 
   <div id='profile_layout'>
-    <h1><%= current_user.name %>'s Profile</h1>
-
-    <h4>Name: <%= current_user.name %></h4>
-
-    <h4>Email: <%= current_user.email %></h4>
-
-  <a class="waves-effect waves-light btn" href="#modal1">Edit Profile</a>
-
+    <div class='row profile_layout_and_challenge'>
+      <div class='col s6'>
+        <h1><%= current_user.name %>'s Profile</h1>
+        <h4>Name: <%= current_user.name %></h4>
+        <h4>Email: <%= current_user.email %></h4>
+        <a class="waves-effect waves-light btn" href="#modal1">Edit Profile</a>
+      </div>
+      <div class="col s6" id='challenge_button'>
+        <%= link_to "Challenge a Friend!", challenge_path, id: "link_to_challenge_button", class: "waves-effect waves-light btn-large" %>
+      </div>
+    </div>
   <h3>Volunteer Sign Ups: </h3>
   <table class="bordered highlight">
 
@@ -59,29 +52,28 @@
 
 
       <!-- Modal Structure -->
-      <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h4><%= current_user.name %>'s Profile</h4>
+  <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4><%= current_user.name %>'s Profile</h4>
 
-          <%= form_for(current_user) do |f| %>
+        <%= form_for(current_user) do |f| %>
 
 
-            <div class="field">
-              <%= f.label :name %>
-              <%= f.text_field :name %>
-            </div>
-
-            <div class="field">
-              <%= f.label :email %>
-              <%= f.text_field :email %>
-            </div>
-
+          <div class="field">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
           </div>
-          <div class="modal-footer">
-            <%= f.submit "Update Profile", class: "modal-action modal-close waves-green btn-flat" %>
+
+          <div class="field">
+            <%= f.label :email %>
+            <%= f.text_field :email %>
           </div>
-          <% end %>
-      </div>
+
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Update Profile", class: "modal-action modal-close waves-green btn-flat" %>
+        </div>
+        <% end %>
+    </div>
   </div>
-</div>
 </div>
