@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'about_us' => 'dashboard#about_us'
 
   resources :b_good_users
-  resources :challenges
+
 
   # resource :dashboard
   get 'dashboard' => 'dashboard#show'
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get '/auth/failure' => 'auth0#failure'
 
   get '/logout' => 'logouts#logout'
+
+  get '/challenges' => 'challenges#challenges', as: 'challenge'
 
   post '/b_good_user/join_organization' => 'b_good_usersr#join_organization', as: 'join_organization'
 

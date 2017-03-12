@@ -11,7 +11,7 @@
   padding: none;
 }
 
-.row.top {
+.top_of_about_us {
   margin: 0;
   overflow: hidden;
   width: 100%;
@@ -35,7 +35,6 @@
   display: inline-flex;
   padding: 10px 50px;
   text-align: center;
-;
 }
 
 .git_hub_logo {
@@ -46,9 +45,11 @@
   width: 10%;
 }
 
-li {
+ul#photocredits li {
   display: inline;
 }
+
+
 
 .bio_pictures {
   width: 50%;
@@ -58,6 +59,7 @@ li {
 ul.right.hide-on-med-and-down {
   height: 0;
 }
+
 
 .hidden{
   display:none
@@ -77,32 +79,53 @@ ul.right.hide-on-med-and-down {
 .no-video .video-container .poster,
 .touch .video-container .poster {
     display: block !important;
+=======
+#wyncode_logo_and_info {
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 50px 0;
+>>>>>>> 6fbf357ae08ce198d1bfeffa73d2cbf142e5d330
 }
-.video-container {
-    position: relative;
-    bottom: 0%;
-    left: 0%;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background: #000;
+
+#wyncode_logo {
+  width: 40%;
 }
-.video-container .poster img {
-    width: 100%;
-    bottom: 0;
-    position: absolute;
+
+#photo_credits a:link,
+#photo_credits a:link {
+  color: black;
 }
-.video-container .filter {
-    z-index: 100;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.4);
-    width: 100%;
+
+
+.dashboard_video_container {
+/*  making the video fullscreen  */
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  opacity: 0.3;
 }
-.video-container video {
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
+
+/*profile page*/
+
+
+.profile_layout_and_challenge {
+  display: flex;
+
 }
-.video-container video.fillWidth {
-    width: 100%;
+#challenge_button {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+#link_to_challenge_button{
+  margin-top: 20%;
+  font-size: 30px;
 }
