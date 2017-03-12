@@ -11,7 +11,7 @@
   padding: none;
 }
 
-.row.top {
+.row.top_of_about_us {
   margin: 0;
   overflow: hidden;
   width: 100%;
@@ -35,7 +35,6 @@
   display: inline-flex;
   padding: 10px 50px;
   text-align: center;
-;
 }
 
 .git_hub_logo {
@@ -46,9 +45,11 @@
   width: 10%;
 }
 
-li {
+ul#photocredits li {
   display: inline;
 }
+
+
 
 .bio_pictures {
   width: 50%;
@@ -57,6 +58,22 @@ li {
 
 ul.right.hide-on-med-and-down {
   height: 0;
+}
+
+#wyncode_logo_and_info {
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 50px 0;
+}
+
+#wyncode_logo {
+  width: 40%;
+}
+
+#photo_credits a:link,
+#photo_credits a:link {
+  color: black;
 }
 
 /*
