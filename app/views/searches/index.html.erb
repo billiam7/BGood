@@ -11,13 +11,15 @@
         data-date="<%= opportunity['availability']['startDate'] %>"
         data-time="<%= opportunity['availability']['startTime'] %>"
         data-link="<%= opportunity['vmUrl'] %>"  >
-        <i class="fa fa-calendar-plus-o fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-calendar-plus-o fa-3x" aria-hidden="true"></i>
       </a>
-      <%= image_tag(opportunity['imageUrl'], :class => "circle responsive-img") if opportunity['imageUrl']%>
-      <span class="title"><%= opportunity["title"] %></span>
-      <p><%= opportunity['plaintextDescription'] if opportunity['plaintextDescription'] %></p>
-        <% opportunity.each do |field, value| %>
-          <% next if (%w[minimumAge imageUrl plaintextDescription title description categoryIds greatFor id].include?(field) or value.blank?) %>
+
+      <%= image_tag(opportunity['imageUrl'], :class => "circle") if opportunity['imageUrl']%>
+      <span class="title"><%= opportunity["title"] %></span><br>
+      <p><%= opportunity['plaintextDescription'] if opportunity['plaintextDescription'] %><br>
+      <%= opportunity['parentOrg']['name'] if opportunity['parentOrg']['name'] %><br>
+        <% opportunity.each do |field, value| %></p>
+          <% next if (%w[endDate parentOrg name minimumAge imageUrl plaintextDescription title description categoryIds greatFor id].include?(field) or value.blank?) %>
             <% if value.is_a? Hash %>
               <%= field %>
               <ul>
@@ -27,19 +29,20 @@
                 <% end %>
               </ul>
             <% elsif field == "vmUrl" %>
-              <li><%= link_to "View Opportunity Site", value %></li>
+              <p class="opp-link"><%= link_to "View Opportunity Site", value %>
+                  <i class="small material-icons">open_in_browser</i>
+              </p>
             <% else %>
               <%= field %>: <%= value %>
             <% end %>
         <% end %>
-    </li>
-    <hr>
   <% end %>
 </ul>
-
+</li>
 <% unless session[:page_number].nil?%>
-<a href="http://localhost:3000/searches/index?page=<%= session[:page_number] + 1 %>">next
-<i class="small material-icons">skip_next</i></a>
+<a class="next" href="http://localhost:3000/searches/index?page=<%= session[:page_number] + 1 %>">next
+<i class="small material-icons">skip_next</i>
+</a>
 <% end %>
 
 
