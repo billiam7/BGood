@@ -1,0 +1,41 @@
+
+.container-search{
+  background: linear-gradient(#e0f7fa , #00bcd4 );
+}
+
+.collection .collection-item.avatar .circle{
+  height: 125px;
+  width: 125px;
+}
+
+.collection .collection-item.avatar{
+  padding-left: 150px;
+  padding-right: 125px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.collection .collection-item {
+    background-color: transparent;
+  }
+
+  .collection .collection-item.avatar .title {
+      font-size: 25px;
+      display: block;
+      text-align: center;
+  }
+
+.opp-link{
+  display: block;
+  text-align: center;
+}
+
+a.next {
+    display: block;
+    text-align: right;
+}
+
+p.org-name{
+  display: block;
+  text-align: center;
+}
