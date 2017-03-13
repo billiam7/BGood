@@ -1,56 +1,58 @@
-
-<div id='dashboard_layout' class='container'>
-
-
+<div id='dashboard_layout'>
   <div id='profile_layout'>
     <div class='row profile_layout_and_challenge'>
-      <div class='col s6'>
-        <h1><%= current_user.name %>'s Profile</h1>
-        <h4>Name: <%= current_user.name %></h4>
-        <h4>Email: <%= current_user.email %></h4>
-        <a class="waves-effect waves-light btn" href="#modal1">Edit Profile</a>
+      <div class='col s4'>
+        <%= image_tag('trash_pickup.jpg', alt:'two girls picking up trash', id: 'trash_pickup') %>
+        <p id='trash_caption'>photo credit: chesbayprogram <a href="http://www.flickr.com/photos/29388462@N06/28326627802">Earth Day cleanup at Kenilworth Park in Washington, D.C.</a> via <a href="http://photopin.com">photopin</a> <a href="https://creativecommons.org/licenses/by-nc/2.0/">(license)</a></p>
       </div>
-      <div class="col s6" id='challenge_button'>
-        <%= link_to "Find Opportunities", searches_path, class: "link_to_challenge_button", class: "waves-effect waves-light btn-large" %>
-        <%= link_to "Challenge a Friend", challenge_path, class: "link_to_challenge_button", class: "waves-effect waves-light btn-large" %>
+      <div class='col s8'>
+        <div id='ali_quote'>
+          <h4><em>"Service to others is the rent you pay for your room here on earth"</em></h4>
+          <h4>- Muhammad Ali</h4>
+        </div>
+        <div id='challenge_button'>
+          <%= link_to "Find Opportunities", searches_path, class: "link_to_challenge_button", class: "waves-effect waves-light btn-large flow-text" %>
+          <%= link_to "Challenge a Friend", challenge_path, class: "link_to_challenge_button", class: "waves-effect waves-light btn-large flow-text" %>
+        </div>
+        <h2><%= current_user.name %>'s Profile</h2>
+        <h5>Name: <%= current_user.name %></h5>
+        <h5>Email: <%= current_user.email %></h5>
+        <a class="waves-effect waves-light btn" href="#modal1">Edit Profile</a>
+
+
+
+        <div>
+          <h4>Volunteer Sign Ups: </h4>
+          <table class="bordered highlight">
+            <thead>
+              <tr>
+                <th data-field="api_id" class="hidden">class=Hidden</th>
+                <th data-field="opportunity">Opportunity</th>
+                <th data-field="organization">Organization</th>
+                <th data-field="date">Date</th>
+                <th data-field="time">Time</th>
+                <th data-field="link">Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <% current_user.challenges.each do |challenge| %>
+                <td class="hidden"> <%= challenge.opportunity.api_id %></td>
+                <td> <%= challenge.opportunity.name %></td>
+                <td> <%= challenge.opportunity.organization %></td>
+                <td> <%= challenge.opportunity.date %></td>
+                <td> <%= challenge.opportunity.time %></td>
+                <td> <%= link_to (content_tag :i, "open_in_browser", class: 'material-icons'), challenge.opportunity.link %></td>
+                <!-- <i class="material-icons">open_in_browser</i> add icon -->
+              <tr>
+            </tbody>
+                <% end %>
+          <table>
+        </div>
       </div>
     </div>
-  <h3>Volunteer Sign Ups: </h3>
-  <table class="bordered highlight">
-
-    <thead>
-
-      <tr>
-        <th data-field="api_id" class="hidden">class=Hidden</th>
-        <th data-field="opportunity">Opportunity</th>
-        <th data-field="organization">Organization</th>
-        <th data-field="date">Date</th>
-        <th data-field="time">Time</th>
-        <th data-field="link">Link</th>
-      </tr>
-
-    </thead>
-
-
-    <tbody>
-      <tr>
-        <% current_user.challenges.each do |challenge| %>
-        <td class="hidden"> <%= challenge.opportunity.api_id %></td>
-        <td> <%= challenge.opportunity.name %></td>
-        <td> <%= challenge.opportunity.organization %></td>
-        <td> <%= challenge.opportunity.date %></td>
-        <td> <%= challenge.opportunity.time %></td>
-        <td> <%= link_to (content_tag :i, "open_in_browser", class: 'material-icons'), challenge.opportunity.link %></td>
-        <!-- <i class="material-icons">open_in_browser</i> add icon -->
-        <tr>
-        </tbody>
-
-        <% end %>
-        <table>
-
-
       <!-- Modal Structure -->
-  <div id="modal1" class="modal">
+  <div id="modal1" class="modal cyan lighten-4">
       <div class="modal-content">
         <h4><%= current_user.name %>'s Profile</h4>
 
@@ -68,13 +70,11 @@
           </div>
 
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer cyan lighten-4">
+          <%= button_tag "Cancel", class: "modal-action modal-close waves-green btn-flat" %>
           <%= f.submit "Update Profile", class: "modal-action modal-close waves-green btn-flat" %>
         </div>
         <% end %>
     </div>
   </div>
-</div>
-<div class="challenges_page_photo_credit">
-  <p>photo credit: symphony of love <a href="http://www.flickr.com/photos/85608594@N00/26861894894">Muhammad Ali Service to others is the rent you pay for your room here on earth</a> via <a href="http://photopin.com">photopin</a> <a href="https://creativecommons.org/licenses/by-sa/2.0/">(license)</a></p>
 </div>

@@ -1,7 +1,17 @@
-<div id='challenges valign-wrapper'>
-  <div class="challenges_video_container video_container">
-    <%= video_tag("Draw-Something.mp4", controls: false, autoplay: true, loop: true, class: "drawing_video") %>
-  </div>
+<div class="homepage-hero-module">
+    <div class="video-container">
+        <div class="filter"></div>
+        <video autoplay loop class="fillWidth">
+            <source src="../../../public/videos/Draw-Something/MP4/Draw-Something.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+            <source src="../../../public/videos/Draw-Something/WEBM/Draw-Something.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+        </video>
+        <div class="poster hidden">
+            <img src="public/videos/Draw-Something/Snapshots/Draw-Something.jpg" alt="girl drawing">
+        </div>
+    </div>
+</div>
+
+
   <div class='top_of_challenges valign-wrapper'>
     <div id='challenges_text' class='card-panel cyan darken-2'>
       <h3 >Challenges!</h3>
