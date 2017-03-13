@@ -33,3 +33,8 @@ a.next {
     display: block;
     text-align: right;
 }
+
+p.org-name{
+  display: block;
+  text-align: center;
+}

@@ -16,9 +16,9 @@
 
       <%= image_tag(opportunity['imageUrl'], :class => "circle") if opportunity['imageUrl']%>
       <span class="title"><%= opportunity["title"] %></span><br>
-      <p><%= opportunity['plaintextDescription'] if opportunity['plaintextDescription'] %><br>
-      <%= opportunity['parentOrg']['name'] if opportunity['parentOrg']['name'] %><br>
-        <% opportunity.each do |field, value| %></p>
+      <p><%= opportunity['plaintextDescription'] if opportunity['plaintextDescription'] %></p><br>
+      <p class="org-name"><%= opportunity['parentOrg']['name'] if opportunity['parentOrg']['name'] %></p><br>
+        <% opportunity.each do |field, value| %>
           <% next if (%w[endDate parentOrg name minimumAge imageUrl plaintextDescription title description categoryIds greatFor id].include?(field) or value.blank?) %>
             <% if value.is_a? Hash %>
               <%= field %>
