@@ -31,6 +31,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'omniauth-auth0', '~> 1.4.2'
 gem 'auth0'
 
+#helps with turbolinks- caused problems in jquery
 gem 'jquery-turbolinks'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
