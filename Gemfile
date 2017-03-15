@@ -31,7 +31,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'omniauth-auth0', '~> 1.4.2'
 gem 'auth0'
 
-
+gem 'jquery-turbolinks'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

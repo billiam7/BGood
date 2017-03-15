@@ -3,20 +3,31 @@
   height: auto;
 }
 
+#landing_page_body h1 {
+  font-size: 75px;
+}
 
+.container.landing-top p {
+  font-size: 25px;
+}
 
 #auth0_login {
-  margin-top: 300px;
+  margin-top: 200px;
+  justify-content: center;
+}
+
+.landing_page_quote {
+  font-size: 30px;
 }
 
 a#login_button.waves-effect.waves-light.btn-large.cyan.lighten-2 {
-  padding: 70px 70px 100px 70px;
+  padding: 50px 70px 100px 70px;
   text-align: center;
   font-size: 35px;
 }
 
 .landing-top {
-  height: 100px;
+  height: 150px;
 }
 
 #bgood_logo img{

@@ -4,6 +4,7 @@
 
   <div class="container landing-top">
   <h1 class="header center black-text text-lighten-2">B Good</h1>
+  <p class="header center black-text text-lighten-2">Miami's fun way to volunteer!</p>
   </div>
 
 <!-- auth0 login -->
@@ -15,7 +16,7 @@
         <div class="row center">
           <h5 class="header col s12 light"></h5>
         </div>
-        <div id='auth0_login'>
+        <div id='auth0_login' class='valign-wrapper'>
           <script src="https://cdn.auth0.com/js/lock-passwordless-2.2.min.js"></script>
           <script>
             var lock = new Auth0LockPasswordless('<%= ENV['auth0_bgood_key'] %>', '<%= ENV['auth0_domain'] %>');
@@ -23,7 +24,7 @@
               lock.sms({
                 icon:"https://bgoodmiami.herokuapp.com/assets/bgood_logo-62bdcd1880a570f839862b5037083dc62f0c071898af8022c228481caf6bec0d.png",
                 primaryColor:"#4dd0e1",
-                callbackURL: 'https://bgoodmiami.herokuapp.com/auth/oauth2/callback',
+                callbackURL: 'http://localhost:3000/auth/oauth2/callback',
                 dict: {title:"B Good"},
                 authParams: {
                   scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes
@@ -85,7 +86,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">Miami's fun way to volunteer!</h5>
+          <h5 class="header col s12 light white-text landing_page_quote card-panel"><em><strong>“Wherever you turn, you can find someone who needs you. Even if it is a little thing, do something for which there is no pay but the privilege of doing it. Remember, you don’t live in the world all of your own.”</em>-Albert Schweitzer</strong></h5>
         </div>
       </div>
     </div>
@@ -100,6 +101,7 @@
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h4>Who we are</h4>
           <p class="left-align light">We are Bill Lapko and Bethany Farrey, two Wyncoade Academy students who are interested in getting people more active in the volunteer community in Miami.  For our final project, we wanted to create a website that would bring people together and help the community, all in one.  From this idea, BGood was born.</p>
+          <p>Join us today and start making a difference in your community.</p>
         </div>
       </div>
 
@@ -111,11 +113,22 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">Join us today and start making a difference in your community</h5>
+        <h5 class="header col s12 light landing_page_quote white-text card-panel"><em>“Volunteers do not necessarily have the time; they just have the heart.”</em> -Elizabeth Andrew</h5>
         </div>
       </div>
     </div>
-    <div class="parallax"><%= image_tag("volunteer2.jpg", alt: "hand reaching out") %></div>
+    <div class="parallax"><%= image_tag("volunteer2.jpg", alt: "volunteers working on a garden") %></div>
   </div>
 </div>
+<footer class="page-footer cyan darken-1">
+    <div class="container">
+      <div class="row" id='photocredits'>
+        <h6>Photo credits:</h6>
+        <ul id='photo_credits'>
+          <li>photo credit: compassionconnect <a href="http://www.flickr.com/photos/130897848@N02/17748229595">Wilson HS Clinic 697</a> via <a href="http://photopin.com">photopin</a> <a href="https://creativecommons.org/licenses/by/2.0/">(license)</a></li>
+          <li>143d Sustainment Command (Expeditionary) <a href="http://www.flickr.com/photos/97674177@N02/32410532392">SHOWING UNITY AS A COMMUNITY 143d ESC PARTNERS WITH NFL TO KEEP 'THE CITY BEAUTIFUL'</a> via <a href="http://photopin.com">photopin</a> <a href="https://creativecommons.org/licenses/by/2.0/">(license)</a></li>
+        </ul>
+      </div>
+    </div>
+</footer>
 </body>

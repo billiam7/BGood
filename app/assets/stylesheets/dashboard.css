@@ -85,6 +85,11 @@ ul#photocredits li {
   color: blue;
 }
 
+#about_us_page_quote {
+  font-size: 20px;
+}
+
+
 /*profile page*/
 
 .profile_layout_and_challenge {
@@ -97,6 +102,10 @@ ul#photocredits li {
   justify-content: center;
   margin: 3%  0;
   width: 100%;
+}
+
+.card-panel {
+  background-color: rgba( 0, 0, 0, 0.5);
 }
 
  #challenge_button a.btn-large{
@@ -116,6 +125,9 @@ ul#photocredits li {
   text-align: center;
 }
 
+#dashboard_layout .page-footer {
+  width: 100%;
+}
 
 
 /*nav bar*/

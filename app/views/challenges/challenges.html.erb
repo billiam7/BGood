@@ -1,10 +1,25 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=194677921017576";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+window.fbAsyncInit = function(){  // this gets triggered when FB object gets initialized
+       console.log("FB Object initiated");
+       FB.XFBML.parse(); // now we can safely call parse method
+  };
+</script>
+
 <div class="homepage-hero-module">
     <div class="video-container">
         <div class="filter">
           <div class='top_of_challenges valign-wrapper'>
-            <div id='challenges_text' class='card-panel cyan darken-2'>
+            <div id='challenges_text' class='card-panel'>
               <h3 >Challenges!</h3>
-              <p class="flow-text">Now that you are a member of B Good, challenge a friend to volunteer in the
+              <p class="flow-text white-text">Now that you are a member of B Good, challenge a friend to volunteer in the
                 community as well.  The best part?  They can search our database to find something
                 that interests them.  Do they like animals?  Helping with a beach clean up?
                 Our site lists all different types of volunteer groups so that anyone can
