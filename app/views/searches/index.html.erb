@@ -19,14 +19,15 @@
       <p><%= opportunity['plaintextDescription'] if opportunity['plaintextDescription'] %></p><br>
       <p class="org-name"><%= opportunity['parentOrg']['name'] if opportunity['parentOrg']['name'] %></p><br>
         <% opportunity.each do |field, value| %>
-          <% next if (%w[endDate parentOrg name minimumAge imageUrl plaintextDescription title description categoryIds greatFor id].include?(field) or value.blank?) %>
+          <% next if (%w[parentOrg name minimumAge imageUrl plaintextDescription title description categoryIds greatFor id].include?(field) or value.blank?) %>
             <% if value.is_a? Hash %>
               <%= field %>
               <ul>
                 <% value.each do |subkey, subvalue| %>
-                  <% next if subvalue.blank? %>
-                  <li><%= subkey %>: <%= subvalue %></li>
-                <% end %>
+                  <%# keys of one nesting level in are elminated if in this list %>
+                  <% next if (%w[endDate endTime singleDayOpportunity ongoing].include?(subkey) or subvalue.blank?) %>
+                    <li><%= subkey %>: <%= subvalue %></li>
+                    <% end %>
               </ul>
             <% elsif field == "vmUrl" %>
               <p class="opp-link"><%= link_to "View Opportunity Site", value %>
