@@ -134,3 +134,38 @@ ul#photocredits li {
 ul.right.hide-on-med-and-down {
   height: 0;
 }
+
+
+@media (max-width: 1460px) {
+  #challenge_button {
+    flex-direction: column;
+  }
+
+   #challenge_button a.btn-large {
+    margin: 1em;
+    height: 54px;
+  }
+}
+
+@media (max-width: 460px) {
+  #challenge_button {
+    flex-direction: column;
+  }
+
+   #challenge_button a.btn-large {
+    margin: 1em;
+    height: auto;
+  }
+}
+
+@media (max-width: 340px) {
+  #challenge_button {
+    flex-direction: column;
+  }
+
+   #challenge_button a.btn-large {
+    margin: 1em;
+    height: auto;
+    font-size: 0.8rem;
+  }
+}

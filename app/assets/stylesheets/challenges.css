@@ -46,13 +46,19 @@
   justify-content: center;
 }
 
-.fb-share-button, .twitter-share-button {
+.fb-share-button img {
+  transform: scale(1.23);
+  margin-top: 35px;
+  margin-right: 20px;
+}
+
+.twitter-share-button {
   transform: scale(2.5);
   margin: 50px 70px;
 }
 
 .twitter-share-button {
-  margin-bottom: -5px;
+
 }
 
 .challenges_page_photo_credit {

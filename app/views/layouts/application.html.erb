@@ -8,22 +8,20 @@
     <meta property="og:image" content="https://bgoodmiami.herokuapp.com/assets/bgood_logo-62bdcd1880a570f839862b5037083dc62f0c071898af8022c228481caf6bec0d.png" />
     <meta property="og:description"        content="BGood is a fun way to interact with your friends and volunteer in Miami.  Pick what you are interested in, find a volunteer opportunity, then challenge your friends to complete one of their own!" />
 
-    <!-- <meta property="og:image" content="" /> -->
-    <script src="https://use.fontawesome.com/1569c93a06.js"></script>
-
     <link rel=stylesheet href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css'>
-    <!-- Compiled and minified CSS (Materialize)-->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Asul" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Compiled and minified JavaScript -->
-    <script href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.js'></script>
-    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Asul" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <script src="https://use.fontawesome.com/1569c93a06.js"></script>
     
+
+    <!-- google fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
@@ -53,8 +51,6 @@
 
 
     <%= yield %>
-     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <script>
         $('.button-collapse').sideNav({
             menuWidth: 300, // Default is 300
